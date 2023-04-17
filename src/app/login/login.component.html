@@ -1,0 +1,61 @@
+<div class="login-page">
+	<div class="login-box">
+
+		<div class="card card-outline card-primary">
+			<div class="card-header text-center">
+				<a class="h1"><b>Admin</b>LTE</a>
+			</div>
+			<div class="card-body">
+				<p class="login-box-msg">Sign in to start your session</p>
+				<form [formGroup]='loginFb' (ngSubmit)="submitForm()">
+					<div class="input-group mb-3">
+						<input type="email" 
+						class="form-control" 
+						placeholder="Email" 
+						formControlName="email"
+						required
+						[ngClass]="{'is-invalid' : loginFb.controls['email'].invalid && loginFb.controls['email'].touched }"
+						>
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-envelope"></span>
+							</div>
+						</div>
+						<div class="alert alert-danger" *ngif="loginFb.controls['email'].invalid && loginFb.controls['email'].touched">
+							<div *ngIf="loginFb.controls['email'].errors?.['required']"></div>
+						</div>
+					</div>
+					<div class="input-group mb-3">
+						<input type="password" 
+						class="form-control" 
+						placeholder="Password"
+						formControlName="password"
+						required
+						[ngClass]="{'is-invalid' : loginFb.controls['password'].invalid && loginFb.controls['password'].touched}"
+						>
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-lock"></span>
+							</div>
+						</div>
+						<div class="alert alert-danger" *ngif="loginFb.controls['password'].invalid && loginFb.controls['password'].touched">
+							<div *ngIf="loginFb.controls['password'].errors?.['required']"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-8">
+						</div>
+
+						<div class="col-4">
+							<button type="submit" class="btn btn-primary btn-block" [disabled]="loginFb.invalid">Sign In</button>
+						</div>
+
+					</div>
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>

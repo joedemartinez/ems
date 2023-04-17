@@ -1,0 +1,12 @@
+<div class="wrapper">
+<!-- //*ngIf="isLoggedIn$" -->
+  <app-nav-menu *ngIf="isLoggedIn$ "></app-nav-menu>
+
+  <app-nav-bar *ngIf="isLoggedIn$ "></app-nav-bar>
+
+  <!-- <app-dashboard></app-dashboard> -->
+  <router-outlet></router-outlet>
+
+  <app-footer *ngIf="isLoggedIn$ "></app-footer>
+
+</div>
