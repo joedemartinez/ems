@@ -29,8 +29,13 @@ export class AddEmployeesComponent {
 
   //login form submission
   submitForm(){
+    
     let empData = this.addEmp.value
-    // this.fs.collection()
+    this.fs.collection('employees').add(empData).then(ref => {
+      console.log(ref)
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
 }
