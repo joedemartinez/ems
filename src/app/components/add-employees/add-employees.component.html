@@ -1,0 +1,104 @@
+<div class="content-wrapper">
+
+    <!-- breadcrumb -->
+    <app-breadcrumb></app-breadcrumb>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Employee Details</h3>
+                        </div>
+
+                        <form [formGroup]="addEmp" (ngSubmit)="submitForm()">
+                            <div class="card-body">
+                                <div class=" row col-md-12">
+                                    <div class="form-group col-md-6">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" 
+                                        class="form-control"
+                                        placeholder="Enter full name"
+                                        formControlName="fullname"
+                                        required
+                                        [ngClass]="{'is-invalid' : addEmp.controls['fullname'].invalid && addEmp.controls['fullname'].touched }"
+                                        >
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" 
+                                        class="form-control"
+                                        placeholder="Enter email address"
+                                        formControlName="email"
+                                        required
+                                        [ngClass]="{'is-invalid' : addEmp.controls['email'].invalid && addEmp.controls['email'].touched }"
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class=" row col-md-12">
+                                    <div class="form-group col-md-6">
+                                        <label for="phoneno">Phone Number</label>
+                                        <input type="tel" 
+                                        class="form-control"
+                                        placeholder="Enter Phone"
+                                        formControlName="phoneno"
+                                        maxLength="15"
+                                        required
+                                        [ngClass]="{'is-invalid' : addEmp.controls['phoneno'].invalid && addEmp.controls['phoneno'].touched }"
+                                        >
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="position">Position</label>
+                                        <input type="text" 
+                                        class="form-control"
+                                        placeholder="Enter Position"
+                                        formControlName="position"
+                                        required
+                                        [ngClass]="{'is-invalid' : addEmp.controls['position'].invalid && addEmp.controls['position'].touched }"
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class=" row col-md-12">
+                                    <div class="form-group col-md-6">
+                                        <label for="salary">Salary</label>
+                                        <input type="number" 
+                                        class="form-control"
+                                        placeholder="Enter salary > 700"
+                                        formControlName="salary"
+                                        min="0"
+                                        required
+                                        [ngClass]="{'is-invalid' : addEmp.controls['salary'].errors?.['min'] && addEmp.controls['salary'].touched }"
+                                        >
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="hire_date">Hire Date</label>
+                                        <input type="date" 
+                                        class="form-control"
+                                        placeholder="Enter hire date"
+                                        formControlName="hire_date"
+                                        required
+                                        [ngClass]="{'is-invalid' : addEmp.controls['hire_date'].invalid && addEmp.controls['hire_date'].touched }"
+                                        >
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" [disabled]="addEmp.invalid" class="btn btn-primary float-right">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

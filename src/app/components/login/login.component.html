@@ -21,9 +21,7 @@
 								<span class="fas fa-envelope"></span>
 							</div>
 						</div>
-						<div class="alert alert-danger" *ngif="loginFb.controls['email'].invalid && loginFb.controls['email'].touched">
-							<div *ngIf="loginFb.controls['email'].errors?.['required']"></div>
-						</div>
+						
 					</div>
 					<div class="input-group mb-3">
 						<input type="password" 
@@ -37,9 +35,6 @@
 							<div class="input-group-text">
 								<span class="fas fa-lock"></span>
 							</div>
-						</div>
-						<div class="alert alert-danger" *ngif="loginFb.controls['password'].invalid && loginFb.controls['password'].touched">
-							<div *ngIf="loginFb.controls['password'].errors?.['required']"></div>
 						</div>
 					</div>
 					<div class="row">

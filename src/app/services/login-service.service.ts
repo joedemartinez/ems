@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -12,8 +12,9 @@ export class LoginServiceService {
 
   //behaviour var
   loggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  guardVal: boolean = false
 
-  constructor(private loginAuth: AngularFireAuth, private router: Router) { }
+  constructor(private loginAuth: AngularFireAuth, private router: Router,private toastr: ToastrService) { }
 
   login(email:string, password:string){
     this.loginAuth.signInWithEmailAndPassword(email, password)
@@ -22,39 +23,46 @@ export class LoginServiceService {
       console.log('success')
       this.loadUser()
       this.loggedIn.next(true) //logged in
-      localStorage.setItem('loggedIn', 'true')
+      localStorage.setItem('loggedIn', 'true') // set storage val
+      this.guardVal = true // guard val
+      this.isLoggedIn()
+      this.toastr.success('You Have Logged In Successfully', 'Success!');
       this.router.navigate(['/dashboard'])
     })
     .catch(err => {
-      // this.toastr.warning('Account do not exist!! See Admin')
-      console.log('error')
+      console.log(err)
+      this.toastr.warning('Opps! Error Occurred', 'Warning!');
+      this.router.navigate(['/login'])
+      
     })
     }
  
   // load user details lastLoginAt
   loadUser(){
     this.loginAuth.authState.subscribe(user => {
-      // console.log(JSON.parse(JSON.stringify(user)))
-      // localStorage.setItem('id', JSON.parse(JSON.stringify(user?.uid)))
-      localStorage.setItem('user', JSON.parse(JSON.stringify(user?.email)))
-      // localStorage.setItem('user', user?.lastLoginAt)
+      //storing user email in local storage
+      localStorage.setItem('user', user?.email  ? user?.email  :  '') //considering undefined val
     })
   }
 
   //logout
   logout(){
     this.loginAuth.signOut().then(() =>{
-      console.log('User Logged Out Successfully')
       this.loggedIn.next(false) //
       localStorage.clear()
-      this.router.navigate(['/'])
+      this.guardVal = false //set guardß
+      this.isLoggedIn() //calling func
+      this.toastr.success('You Have Logged Out Successfully', 'Success!');
+      this.router.navigate(['/login'])
     }).catch((e) => {
       console.log(e)
+      this.toastr.warning('Opps! Error Occurred', 'Warning!');
+      this.router.navigate(['/login'])
     })
   }
 
   //function to check if user is logged in
   isLoggedIn(){
-    return this.loggedIn.getValue();
+    return this.loggedIn.asObservable(); //returning as observable
   }
 }

@@ -4,20 +4,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-// import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { FooterComponent } from './footer/footer.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
+import { NavMenuComponent } from './components/layouts/nav-menu/nav-menu.component';
+import { NavBarComponent } from './components/layouts/nav-bar/nav-bar.component';
+import { FooterComponent } from './components/layouts/footer/footer.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
 import { environment } from 'src/environments/environments.prod';
 import { CommonModule } from '@angular/common';
-import { ToastrModule,ToastContainerModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { EmployeesComponent } from './components/employees/employees.component';
+import { AddEmployeesComponent } from './components/add-employees/add-employees.component';
+import { BreadcrumbComponent } from './components/layouts/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -26,21 +30,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavBarComponent,
     FooterComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    EmployeesComponent,
+    AddEmployeesComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CommonModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    ToastContainerModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    // AngularFirestoreModule,
-    // AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
