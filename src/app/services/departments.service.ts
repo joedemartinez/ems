@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -8,28 +8,28 @@ import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeesService {
+export class DepartmentsService { 
 
   constructor(private fs: AngularFirestore,private router: Router,private toastr: ToastrService) { }
 
   //new emp form submission
-  submitForm(addEmp:FormGroup){ 
+  submitForm(addDept:FormGroup){ 
     
-    let empData = addEmp.value
-    this.fs.collection('employees').add(empData).then(ref => {
+    let deptData = addDept.value
+    this.fs.collection('departments').add(deptData).then(ref => {
       console.log(ref)
-      this.toastr.success('Employee Added Successfully', 'Success!');
-      this.router.navigate(['/employees'])
+      this.toastr.success('New Department Added Successfully', 'Success!');
+      this.router.navigate(['/departments'])
     }).catch(err => {
       console.log(err)
       this.toastr.warning('Oops! Error Occured', 'Warning!');
-      this.router.navigate(['/employees'])
+      this.router.navigate(['/departments'])
     })
   }
 
-  //load emp details
-  loadEmpDetails(){
-    return this.fs.collection('employees').snapshotChanges().pipe(
+  //load dept details
+  loadDeptDetails(){
+    return this.fs.collection('departments').snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -39,4 +39,6 @@ export class EmployeesService {
       })
     )
   }
+
+  
 }

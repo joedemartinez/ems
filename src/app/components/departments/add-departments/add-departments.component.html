@@ -1,0 +1,51 @@
+<div class="card-header text-center">
+    <a class="h3">Department Details</a>
+</div>
+<form [formGroup]="addDept" (ngSubmit)="submitForm()">
+    <div class="card-body">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="dept_code">Dept Code</label>
+                <input type="text" 
+                class="form-control"
+                placeholder="Enter Department Code"
+                formControlName="dept_code"
+                required
+                [ngClass]="{'is-invalid' : addDept.controls['dept_code'].invalid && addDept.controls['dept_code'].touched }"
+                >
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="dept_name">Department Name</label>
+                <input type="text" 
+                class="form-control"
+                placeholder="Enter Department Name"
+                formControlName="dept_name"
+                required
+                [ngClass]="{'is-invalid' : addDept.controls['dept_name'].invalid && addDept.controls['dept_name'].touched }"
+                >
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="dept_head">Deparment Head</label>
+                <input type="text" 
+                class="form-control"
+                placeholder="Enter Deparment Head"
+                formControlName="dept_head"
+                required
+                [ngClass]="{'is-invalid' : addDept.controls['dept_head'].invalid && addDept.controls['dept_head'].touched }"
+                >
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="card-footer">
+        <button type="button" class="btn btn-danger float-left" (click)="closeModal()">Cancel</button>
+        <button type="submit" [disabled]="addDept.invalid" class="btn btn-primary float-right">Submit</button>
+    </div>
+</form>

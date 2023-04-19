@@ -24,6 +24,9 @@ import { AddEmployeesComponent } from './components/employees/add-employees/add-
 import { BreadcrumbComponent } from './components/layouts/breadcrumb/breadcrumb.component'
 
 import { DataTablesModule } from 'angular-datatables';
+import { DepartmentsComponent } from './components/departments/departments.component';
+import { AddDepartmentsComponent } from './components/departments/add-departments/add-departments.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -36,7 +39,9 @@ import { DataTablesModule } from 'angular-datatables';
     LoginComponent,
     EmployeesComponent,
     AddEmployeesComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    DepartmentsComponent,
+    AddDepartmentsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { DataTablesModule } from 'angular-datatables';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    DataTablesModule
+    DataTablesModule,
+    NgbModule
     // AngularFireStorageModule,
   ],
   providers: [],
