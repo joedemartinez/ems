@@ -1,20 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { DepartmentsService } from 'src/app/services/departments.service';
+import { EmployeesService } from 'src/app/services/employees.service';
 
 @Component({
   selector: 'app-add-departments',
   templateUrl: './add-departments.component.html',
   styleUrls: ['./add-departments.component.css']
 })
-export class AddDepartmentsComponent {
+export class AddDepartmentsComponent implements OnInit {
 
   //form group
   addDept!: FormGroup;
 
-  constructor ( private breadcrumb: BreadcrumbService, private fb: FormBuilder, private modal: NgbModal, private deptService: DepartmentsService) {
+  empData: any
+
+  constructor ( private breadcrumb: BreadcrumbService, private fb: FormBuilder, private modal: NgbModal, private deptService: DepartmentsService, private empService: EmployeesService) {
     this.breadcrumb.setPageDetails('Add Employees','Employees','/employees','Add Employees')
 
     //set validations
@@ -32,6 +35,13 @@ export class AddDepartmentsComponent {
   submitForm(){
     this.deptService.submitForm(this.addDept)
     this.closeModal()
+  }
+
+  ngOnInit(): void {
+    this.empService.loadEmpDetails().subscribe(res => {
+      this.empData = res
+
+    })
   }
 
 }

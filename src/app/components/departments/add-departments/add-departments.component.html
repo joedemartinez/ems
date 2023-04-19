@@ -32,13 +32,15 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label for="dept_head">Deparment Head</label>
-                <input type="text" 
+                <select id="mySelect" 
                 class="form-control"
-                placeholder="Enter Deparment Head"
                 formControlName="dept_head"
                 required
                 [ngClass]="{'is-invalid' : addDept.controls['dept_head'].invalid && addDept.controls['dept_head'].touched }"
                 >
+                <option value="" selected disabled>Select Option</option>
+                <option *ngFor="let emp of empData;" value="{{emp.id}}" >{{emp.data.fullname}}</option>
+                </select>
             </div>
         </div>
         
