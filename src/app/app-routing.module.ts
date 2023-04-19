@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddEmployeesComponent } from './components/add-employees/add-employees.component';
+import { AddEmployeesComponent } from './components/employees/add-employees/add-employees.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { LoginComponent } from './components/login/login.component'; 

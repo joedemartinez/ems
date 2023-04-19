@@ -20,7 +20,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { EmployeesComponent } from './components/employees/employees.component';
-import { AddEmployeesComponent } from './components/add-employees/add-employees.component';
+import { AddEmployeesComponent } from './components/employees/add-employees/add-employees.component';
 import { BreadcrumbComponent } from './components/layouts/breadcrumb/breadcrumb.component'
 
 import { DataTablesModule } from 'angular-datatables';
@@ -51,7 +51,6 @@ import { DataTablesModule } from 'angular-datatables';
     AngularFireAuthModule,
     AngularFirestoreModule,
     DataTablesModule
-    // DataTablesModule
     // AngularFireStorageModule,
   ],
   providers: [],

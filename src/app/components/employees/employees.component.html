@@ -27,12 +27,12 @@
                 <tbody>
                   <tr *ngFor="let emp of empData; let i = index">
                     <td>{{i + 1}}</td>
-                    <td>{{emp}}</td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                    <td> 4</td>
-                    <td>X</td>
+                    <td>{{emp.data.fullname}}</td>
+                    <td>{{emp.data.email}}</td>
+                    <td>{{emp.data.phoneno}}</td>
+                    <td>{{emp.data.hire_date}}</td>
+                    <td>{{emp.data.salary}}</td>
+                    <td>{{emp.data.position}}</td>
                   </tr>
                 </tbody>
               </table>
