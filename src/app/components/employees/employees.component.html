@@ -1,14 +1,47 @@
 <div class="content-wrapper">
 
-    <!-- breadcrumb -->
-    <app-breadcrumb></app-breadcrumb>
-  
-    <section class="content">
-      <div class="container-fluid">
-  
-        
-  
+  <!-- breadcrumb -->
+  <app-breadcrumb></app-breadcrumb>
+
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Employee Details</h3>
+            </div>
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Full Name</th>
+                    <th>Email Address</th>
+                    <th>Phone Number</th>
+                    <th>Hire Date</th>
+                    <th>Salary</th>
+                    <th>Position</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let emp of empData; let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{emp}}</td>
+                    <td>Win 95+</td>
+                    <td> 4</td>
+                    <td>X</td>
+                    <td> 4</td>
+                    <td>X</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-  
-  </div>
+    </div>
+  </section>
+
+</div>

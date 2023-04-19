@@ -21,7 +21,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { AddEmployeesComponent } from './components/add-employees/add-employees.component';
-import { BreadcrumbComponent } from './components/layouts/breadcrumb/breadcrumb.component';
+import { BreadcrumbComponent } from './components/layouts/breadcrumb/breadcrumb.component'
+
+import { DataTablesModule } from 'angular-datatables';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +50,8 @@ import { BreadcrumbComponent } from './components/layouts/breadcrumb/breadcrumb.
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    DataTablesModule
+    // DataTablesModule
     // AngularFireStorageModule,
   ],
   providers: [],

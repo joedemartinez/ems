@@ -11,11 +11,12 @@ export class FooterComponent {
 
   isLoggedIn$!: Observable<boolean>
   loggedIn!: any
-  
+  cdate: any
   constructor(private login: LoginServiceService){
   }
 
   ngOnInit(): void {
+    this.cdate = new Date().getFullYear()
 
       this.loggedIn = localStorage.getItem('loggedIn')
       if(this.loggedIn){
