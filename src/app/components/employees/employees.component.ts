@@ -21,18 +21,20 @@ export class EmployeesComponent implements OnInit {
     this.empService.loadEmpDetails().subscribe(res => {
       // console.log(res)
       this.empData = res
-     // console.log(this.empData) 
-      setTimeout(()=>{   
-          $('#example1').DataTable( {
-            pagingType: 'simple_numbers',
-            dom: '<"clear">lBfrtip',
-            // dom: '<B<"clear">liflp',
-            pageLength: 10,
-            searching: true,
-            processing: true,
-            lengthMenu : [5, 10, 25],
+    //  console.log(this.empData) 
+
+      setTimeout(()=>{
+        $('#example1').DataTable( {
+          pagingType: 'simple_numbers',
+          dom: '<"clear">lBfrtip',
+          // dom: '<B<"clear">liflp',
+          pageLength: 10,
+          searching: true,
+          processing: true,
+          lengthMenu : [5, 10, 25],
+          destroy: true
         } );
-      }, 0);
+      });
 
     })
 

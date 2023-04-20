@@ -27,6 +27,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { AddDepartmentsComponent } from './components/departments/add-departments/add-departments.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ManageDepartmentsComponent } from './components/departments/manage-departments/manage-departments.component';
+import { ManageEmployeesComponent } from './components/employees/manage-employees/manage-employees.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddEmployeesComponent,
     BreadcrumbComponent,
     DepartmentsComponent,
-    AddDepartmentsComponent
+    AddDepartmentsComponent,
+    ManageDepartmentsComponent,
+    ManageEmployeesComponent
   ],
   imports: [
     BrowserModule,

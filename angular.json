@@ -57,7 +57,8 @@
               "node_modules/admin-lte/plugins/datatables-buttons/js/buttons.html5.min.js",
               "node_modules/admin-lte/plugins/datatables-buttons/js/buttons.print.min.js",
               "node_modules/admin-lte/plugins/datatables-buttons/js/buttons.colVis.min.js",
-              "node_modules/admin-lte/dist/js/pages/dashboard2.js"
+              "node_modules/admin-lte/plugins/datatables-buttons/js/buttons.colVis.min.js"
+              // "node_modules/admin-lte/dist/js/pages/dashboard2.js"
             ]
           },
           "configurations": {

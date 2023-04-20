@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BreadcrumbService } from 'src/app/services/breadcrumb.service';
 import { DepartmentsService } from 'src/app/services/departments.service';
-import { EmployeesService } from 'src/app/services/employees.service';
-import { AddDepartmentsComponent } from './add-departments/add-departments.component';
+import { AddDepartmentsComponent } from '../add-departments/add-departments.component';
 
 @Component({
-  selector: 'app-departments',
-  templateUrl: './departments.component.html',
-  styleUrls: ['./departments.component.css']
+  selector: 'app-manage-departments',
+  templateUrl: './manage-departments.component.html',
+  styleUrls: ['./manage-departments.component.css']
 })
-export class DepartmentsComponent implements OnInit { 
+export class ManageDepartmentsComponent {
 
   deptData: any
 
   constructor ( private breadcrumb: BreadcrumbService, private deptService: DepartmentsService, private modal: NgbModal) {
-    this.breadcrumb.setPageDetails('Departments','Department Details','/departments','')
+    this.breadcrumb.setPageDetails('Departments','Departments','/departments','Manage Department')
 
   }
 
@@ -39,12 +38,22 @@ export class DepartmentsComponent implements OnInit {
           searching: true,
           processing: true,
           lengthMenu : [5, 10, 25],
+          stateSave: true,
           destroy: true
         } );
       });
-      
-
+      // 
     })
 
   }
+
+  editDept(){
+    this.openModal()
+  }
+
+  deleteDept(id){
+    this.deptService.deleteDept(id)
+  }
+  
+
 }

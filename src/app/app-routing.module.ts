@@ -8,6 +8,8 @@ import { AppGuardGuard } from './services/guards/app-guard.guard';
 import { LoginGuardGuard } from './services/guards/login-guard.guard';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { AddDepartmentsComponent } from './components/departments/add-departments/add-departments.component';
+import { ManageEmployeesComponent } from './components/employees/manage-employees/manage-employees.component';
+import { ManageDepartmentsComponent } from './components/departments/manage-departments/manage-departments.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },//, canActivate: [AppGuardGuard]
@@ -16,9 +18,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AppGuardGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AppGuardGuard] },
   { path: 'employees', component: EmployeesComponent, canActivate: [AppGuardGuard] },
-  { path: 'add-employees', component: AddEmployeesComponent, canActivate: [AppGuardGuard] },
+  { path: 'manage-employees', component: ManageEmployeesComponent, canActivate: [AppGuardGuard] },
   { path: 'departments', component: DepartmentsComponent, canActivate: [AppGuardGuard] },
-  // { path: 'add-departments', component: AddDepartmentsComponent, canActivate: [AppGuardGuard] },
+  { path: 'manage-departments', component: ManageDepartmentsComponent, canActivate: [AppGuardGuard] },
 
   { path: '**', component: DashboardComponent, canActivate: [AppGuardGuard] },
   

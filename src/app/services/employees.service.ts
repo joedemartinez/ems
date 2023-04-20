@@ -19,11 +19,11 @@ export class EmployeesService {
     this.fs.collection('employees').add(empData).then(ref => {
       console.log(ref)
       this.toastr.success('Employee Added Successfully', 'Success!');
-      this.router.navigate(['/employees'])
+      this.router.navigate(['/manage-employees'])
     }).catch(err => {
       console.log(err)
       this.toastr.warning('Oops! Error Occured', 'Warning!');
-      this.router.navigate(['/employees'])
+      this.router.navigate(['/manage-employees'])
     })
   }
 
@@ -39,4 +39,42 @@ export class EmployeesService {
       })
     )
   }
+
+  //load 1 emp details
+  loadEmpDetail(id){
+    //return this.fs.collection('employees').doc(id).valueChanges();//
+    return this.fs.doc(`employees/${id}`).valueChanges()
+  }
+
+  //update 1 emp details
+  updateEmpDetail(id, data){
+    this.fs.doc(`employees/${id}`).update(data).then(()=>{
+      this.toastr.success('Employee Details has been updated successfully')
+      this.router.navigate(['/manage-employees'])
+    }).catch(err => {
+      this.toastr.warning('Oops!! Error occured!')
+      this.router.navigate(['/manage-employees'])
+    })
+  }
+
+  //deleteEmp
+  deleteEmp(id){
+    this.fs.doc(`employees/${id}`).delete().then(() => {
+      this.toastr.success('Employees has been deleted successfully')
+      this.router.navigate(['/manage-employees'])
+    }).catch(err => {
+      this.toastr.warning('Oops!! Error occured!')
+      this.router.navigate(['/manage-employees'])
+    })
+  }
+
+  //employees count
+  countEmp(){
+    return this.fs.collection('employees').get().pipe(
+      map((count) => {
+        return count.size
+      })
+    )
+  }
+
 }

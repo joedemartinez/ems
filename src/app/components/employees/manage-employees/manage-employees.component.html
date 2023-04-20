@@ -1,0 +1,55 @@
+<div class="content-wrapper">
+
+    <!-- breadcrumb -->
+    <app-breadcrumb></app-breadcrumb>
+  
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Employee Details</h3>
+                <button (click)="openModal()" class="float-right btn btn-primary"> <i class="fas fa-plus"></i> Add Employee</button>
+              </div>
+              <div class="card-body">
+                <table id="example1" class="example1 table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Action</th>
+                      <th>#</th>
+                      <th>Full Name</th>
+                      <th>Email Address</th>
+                      <th>Phone Number</th>
+                      <th>Hire Date</th>
+                      <th>Salary</th>
+                      <th>Department</th>
+                      <th>Position</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let emp of empData; let i = index">
+                      <td> <button class="btn btn-sm" title="Edit" style="color: rgb(240, 221, 15)" (click)="editEmp()" routerLink="/manage-employees" [queryParams]="{id: emp.id}"> <i class="fa fa-edit"></i></button>
+                        <button class="btn btn-sm" title="Delete" style="color: red" (click)="deleteEmp(emp.id)" routerLink="/manage-employees" [queryParams]="{id: emp.id}"> <i class="fa fa-trash"></i></button>
+                      </td>
+                      <td>{{i + 1}}</td>
+                      <td>{{emp.data.fullname}}</td>
+                      <td>{{emp.data.email}}</td>
+                      <td>{{emp.data.phoneno}}</td>
+                      <td>{{emp.data.hire_date}}</td>
+                      <td>{{emp.data.salary}}</td>
+                      <td>{{emp.data.dept_id}</td>
+                      <td>{{emp.data.position}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  
+  </div>
