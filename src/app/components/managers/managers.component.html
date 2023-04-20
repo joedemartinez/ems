@@ -1,0 +1,41 @@
+<div class="content-wrapper">
+
+    <!-- breadcrumb -->
+    <app-breadcrumb></app-breadcrumb>
+  
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Managers Details</h3>
+              </div>
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Manager</th>
+                      <th>Department Name</th>
+                      <th>No of Employees</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let dept of deptData; let i = index">
+                      <td>{{i + 1}}</td>
+                      <td>{{dept.data.dept_name}}</td>
+                      <td>{{dept.data.dept_head}}</td>
+                      <td>{{dept.data.dept_head}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+  </div>

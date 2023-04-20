@@ -29,6 +29,7 @@ import { AddDepartmentsComponent } from './components/departments/add-department
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ManageDepartmentsComponent } from './components/departments/manage-departments/manage-departments.component';
 import { ManageEmployeesComponent } from './components/employees/manage-employees/manage-employees.component';
+import { ManagersComponent } from './components/managers/managers.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { ManageEmployeesComponent } from './components/employees/manage-employee
     DepartmentsComponent,
     AddDepartmentsComponent,
     ManageDepartmentsComponent,
-    ManageEmployeesComponent
+    ManageEmployeesComponent,
+    ManagersComponent
   ],
   imports: [
     BrowserModule,

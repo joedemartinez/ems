@@ -77,4 +77,26 @@ export class DepartmentsService {
     )
   }
   
+
+  //managers query
+  // getManagers(){
+  //   // Assume 'this.fs' is a Firestore instance
+  //   const departmentsRef = this.fs.collection('departments');
+  //   const employeesRef = this.fs.collection('employees');
+
+  //   // Retrieve all department documents
+  //   departmentsRef.get().then((deptQuerySnapshot) => {
+  //     deptQuerySnapshot.forEach((deptDoc) => {
+  //       const deptId = deptDoc.id;
+  //       const deptName = deptDoc.data().name;
+
+  //       // Query for all employees in this department
+  //       const employeeQuery = employeesRef.where('dept_id', '==', deptId);
+  //       employeeQuery.get().then((employeeQuerySnapshot) => {
+  //         const numEmployees = employeeQuerySnapshot.size;
+  //         console.log(`${deptName}: ${numEmployees}`);
+  //       });
+  //     });
+  //   });
+  // }
 }
