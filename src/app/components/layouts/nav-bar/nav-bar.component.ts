@@ -23,6 +23,8 @@ export class NavBarComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    
+    
 
     //set emp count
     this.empService.countEmp().subscribe((count) => {

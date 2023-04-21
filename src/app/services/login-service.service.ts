@@ -57,6 +57,7 @@ export class LoginServiceService {
     }).catch((e) => {
       console.log(e)
       this.toastr.warning('Opps! Error Occurred', 'Warning!');
+      window.location.reload()
       this.router.navigate(['/login'])
     })
   }

@@ -11,6 +11,7 @@ import { AddDepartmentsComponent } from './components/departments/add-department
 import { ManageEmployeesComponent } from './components/employees/manage-employees/manage-employees.component';
 import { ManageDepartmentsComponent } from './components/departments/manage-departments/manage-departments.component';
 import { ManagersComponent } from './components/managers/managers.component';
+import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },//, canActivate: [AppGuardGuard]
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'departments', component: DepartmentsComponent, canActivate: [AppGuardGuard] },
   { path: 'manage-departments', component: ManageDepartmentsComponent, canActivate: [AppGuardGuard] },
   { path: 'managers', component: ManagersComponent, canActivate: [AppGuardGuard] },
+  { path: 'users', component: UsersComponent, canActivate: [AppGuardGuard] },
 
   { path: '**', component: DashboardComponent, canActivate: [AppGuardGuard] },
   
