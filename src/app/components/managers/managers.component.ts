@@ -18,7 +18,7 @@ export class ManagersComponent {
 
   ngOnInit(): void {
     this.deptService.getManagers().subscribe(res => {
-      console.log(res)
+      // console.log(res)
       this.deptData = res
      // console.log(this.empData) 
       //$(document).ready(() => {
