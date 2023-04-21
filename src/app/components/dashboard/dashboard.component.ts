@@ -14,6 +14,7 @@ export class DashboardComponent {
 
   countEmp: any
   countDept: any
+  countMan: any
 
   constructor ( private breadcrumb: BreadcrumbService,
     private empService: EmployeesService,
@@ -31,6 +32,11 @@ export class DashboardComponent {
     //set dept count
     this.deptService.countDept().subscribe((count) => {
       this.countDept = count
+      // console.log(count)//
+    })
+    //set man count
+    this.deptService.countMan().subscribe((count) => {
+      this.countMan = count
       // console.log(count)//
     })
 

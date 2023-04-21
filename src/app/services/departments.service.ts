@@ -94,27 +94,28 @@ export class DepartmentsService {
       })
     )
   }
+
+  //employees count
+  countMan(){
+    return this.fs.collection('departments', ref => ref.where('dept_head', '!=', null)).get().pipe(
+      map((count) => {
+        return count.size
+      })
+    )
+  }
   
 
   //managers query
-  // getManagers(){
-  //   // Assume 'this.fs' is a Firestore instance
-  //   const departmentsRef = this.fs.collection('departments');
-  //   const employeesRef = this.fs.collection('employees');
-
-  //   // Retrieve all department documents
-  //   departmentsRef.get().then((deptQuerySnapshot) => {
-  //     deptQuerySnapshot.forEach((deptDoc) => {
-  //       const deptId = deptDoc.id;
-  //       const deptName = deptDoc.data().name;
-
-  //       // Query for all employees in this department
-  //       const employeeQuery = employeesRef.where('dept_id', '==', deptId);
-  //       employeeQuery.get().then((employeeQuerySnapshot) => {
-  //         const numEmployees = employeeQuerySnapshot.size;
-  //         console.log(`${deptName}: ${numEmployees}`);
-  //       });
-  //     });
-  //   });
-  // }
+  getManagers(){
+    return this.fs.collection('departments', ref => ref.where('dept_head', '!=', null)).snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return {id, data}
+        })
+      })
+    )
+  }
+  
 }
