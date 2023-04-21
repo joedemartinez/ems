@@ -13,6 +13,7 @@ export class LoginServiceService {
   //behaviour var
   loggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
   guardVal: boolean = false
+  users: any
 
   constructor(private loginAuth: AngularFireAuth, private router: Router,private toastr: ToastrService) { }
 
@@ -28,6 +29,9 @@ export class LoginServiceService {
       this.isLoggedIn()
       this.toastr.success('You Have Logged In Successfully', 'Success!');
       this.router.navigate(['/dashboard'])
+      
+      this.loginAuth.user
+      
     })
     .catch(err => {
       console.log(err)
@@ -57,7 +61,6 @@ export class LoginServiceService {
     }).catch((e) => {
       console.log(e)
       this.toastr.warning('Opps! Error Occurred', 'Warning!');
-      window.location.reload()
       this.router.navigate(['/login'])
     })
   }

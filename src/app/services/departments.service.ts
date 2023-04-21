@@ -19,11 +19,17 @@ export class DepartmentsService {
     this.fs.collection('departments').add(deptData).then(ref => {
       console.log(ref)
       this.toastr.success('New Department Added Successfully', 'Success!');
-      this.router.navigate(['/manage-departments'])
+      // this.router.navigate(['/manage-departments'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-departments'])
+        );
     }).catch(err => {
       console.log(err)
       this.toastr.warning('Oops! Error Occured', 'Warning!');
-      this.router.navigate(['/manage-departments'])
+      // this.router.navigate(['/manage-departments'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-departments'])
+      );
     })
   }
 
@@ -50,10 +56,16 @@ export class DepartmentsService {
   updateDeptDetail(id, data){
     return this.fs.doc(`departments/${id}`).update(data).then(()=>{
       this.toastr.success('Department Details has been updated successfully')
-      this.router.navigate(['/manage-departments'])
+      // this.router.navigate(['/manage-departments'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-departments'])
+      );
     }).catch(err => {
       this.toastr.warning('Oops!! Error occured!')
-      this.router.navigate(['/manage-departments'])
+      // this.router.navigate(['/manage-departments'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-departments'])
+      );
     })
   }
 
@@ -61,10 +73,16 @@ export class DepartmentsService {
   deleteDept(id){
     this.fs.doc(`departments/${id}`).delete().then(() => {
       this.toastr.success('Department has been deleted successfully')
-      this.router.navigate(['/manage-departments'])
+      // this.router.navigate(['/manage-departments'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-departments'])//reload component
+      );
     }).catch(err => {
       this.toastr.warning('Oops!! Error occured!')
-      this.router.navigate(['/manage-departments'])
+      // this.router.navigate(['/manage-departments'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-departments'])
+      );
     })
   }
 

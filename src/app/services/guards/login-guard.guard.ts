@@ -16,12 +16,12 @@ export class LoginGuardGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
-    if (this.login.guardVal || this.loggedIn === 'true') {
+    if (this.login.guardVal) {
       this.route.navigate(['/dashboard'])
-      console.log('Access Denied...' )
+      // console.log('Access Denied...' )
       return false //user logged in
     }else{
-      console.log('Access Granted...')
+      // console.log('Access Granted...')
       return true //user logged out
     }
   }

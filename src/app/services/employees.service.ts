@@ -19,11 +19,17 @@ export class EmployeesService {
     this.fs.collection('employees').add(empData).then(ref => {
       console.log(ref)
       this.toastr.success('Employee Added Successfully', 'Success!');
-      this.router.navigate(['/manage-employees'])
+      // this.router.navigate(['/manage-employees'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-employees'])
+      );
     }).catch(err => {
       console.log(err)
       this.toastr.warning('Oops! Error Occured', 'Warning!');
-      this.router.navigate(['/manage-employees'])
+      // this.router.navigate(['/manage-employees'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-employees'])
+      );
     })
   }
 
@@ -50,10 +56,17 @@ export class EmployeesService {
   updateEmpDetail(id, data){
     this.fs.doc(`employees/${id}`).update(data).then(()=>{
       this.toastr.success('Employee Details has been updated successfully')
-      this.router.navigate(['/manage-employees'])
+      // this.router.navigate(['/manage-employees'])
+      //reload component
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-employees'])
+      );
     }).catch(err => {
       this.toastr.warning('Oops!! Error occured!')
-      this.router.navigate(['/manage-employees'])
+      // this.router.navigate(['/manage-employees'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-employees'])
+      );
     })
   }
 
@@ -61,10 +74,16 @@ export class EmployeesService {
   deleteEmp(id){
     this.fs.doc(`employees/${id}`).delete().then(() => {
       this.toastr.success('Employees has been deleted successfully')
-      this.router.navigate(['/manage-employees'])
+      // this.router.navigate(['/manage-employees'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-employees'])
+      );
     }).catch(err => {
       this.toastr.warning('Oops!! Error occured!')
-      this.router.navigate(['/manage-employees'])
+      // this.router.navigate(['/manage-employees'])
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+          this.router.navigate(['/manage-employees'])
+      );
     })
   }
 

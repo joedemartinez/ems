@@ -1,11 +1,11 @@
 <div class="wrapper"> 
 
-  <app-nav-menu ></app-nav-menu>
+  <app-nav-menu *ngIf="loginVal"></app-nav-menu>
 
-  <app-nav-bar ></app-nav-bar>
+  <app-nav-bar *ngIf="loginVal"></app-nav-bar>
 
   <router-outlet></router-outlet>
 
-  <app-footer ></app-footer>
+  <app-footer *ngIf="loginVal"></app-footer>
 
 </div>

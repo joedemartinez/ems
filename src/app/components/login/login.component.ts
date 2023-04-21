@@ -12,8 +12,6 @@ export class LoginComponent implements OnInit {
   //form group
   loginFb: FormGroup;
 
-
-
   constructor (private login:LoginServiceService, private fb: FormBuilder) {
 
     //set validations

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { DepartmentsService } from 'src/app/services/departments.service';
 import { EmployeesService } from 'src/app/services/employees.service';
@@ -12,8 +13,6 @@ import { LoginServiceService } from '../../../services/login-service.service';
 export class NavBarComponent implements OnInit{
 
   userEmail!: string | null;
-  isLoggedIn$!: Observable<boolean>
-  loggedIn!: any
   countEmp: any
   countDept: any
   
@@ -23,13 +22,13 @@ export class NavBarComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    
-    
-
     //set emp count
     this.empService.countEmp().subscribe((count) => {
       this.countEmp = count
       // console.log(count)//
+
+       ///set email on navbar
+       this.userEmail = localStorage.getItem('user')
     })
     //set dept count
     this.deptService.countDept().subscribe((count) => {
@@ -37,19 +36,9 @@ export class NavBarComponent implements OnInit{
       // console.log(count)//
     })
 
-      ///set local storage
-      this.userEmail = localStorage.getItem('user')
-      // console.log(localStorage.getItem('user')+' ngOninit')
-
-      this.loggedIn = localStorage.getItem('loggedIn')
-      if(this.loggedIn){
-        this.isLoggedIn$ = of(this.loggedIn ==='true')
-      }
-      else{
-        this.isLoggedIn$ = this.login.isLoggedIn()
-      }
     
   }
+  
 
   logout(){
     this.login.logout();

@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" *ngIf='isLoggedIn$ | async '>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
 
     <a routerLink="/login" class="brand-link">
         <img src="assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -102,7 +102,7 @@
                 <li class="nav-header">SIGN OUT</li>
 
                 <li  class="nav-item active">
-                    <a (click)="logout()" class="nav-link">
+                    <a (click)="logout()" style="cursor:pointer " class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
                             Logout
