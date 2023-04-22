@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "admin-lte",
+    "public": "dist/admin-lte",
     "ignore": [
       "firebase.json",
       "**/.*",
