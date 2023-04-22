@@ -14,7 +14,7 @@ import { ManagersComponent } from './components/managers/managers.component';
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },//, canActivate: [AppGuardGuard]
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },//, canActivate: [AppGuardGuard]
   { path: 'login', component: LoginComponent,canActivate: [LoginGuardGuard]},
   
   { path: 'dashboard', component: DashboardComponent, canActivate: [AppGuardGuard] },

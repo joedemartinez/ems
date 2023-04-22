@@ -1,1 +1,10 @@
-{}
+{
+  "hosting": {
+    "public": "admin-lte",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

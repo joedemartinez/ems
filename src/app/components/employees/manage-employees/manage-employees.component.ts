@@ -52,7 +52,7 @@ export class ManageEmployeesComponent {
           lengthMenu : [5, 10, 25],
           destroy: true //stop multiple initialzation
         } );
-      });
+      }, 2);
     })
 
   }

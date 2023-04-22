@@ -40,8 +40,8 @@ export class ManageDepartmentsComponent {
           lengthMenu : [5, 10, 25],
           stateSave: true,
           destroy: true
-        } );
-      });
+        });
+      }, 2);
       // 
     })
 

@@ -21,7 +21,7 @@ export class LoginServiceService {
     this.loginAuth.signInWithEmailAndPassword(email, password)
     .then(logRef => {
       // this.toastr.success('You have successfully logged in')
-      console.log('success')
+      // console.log('success')
       this.loadUser()
       this.loggedIn.next(true) //logged in
       localStorage.setItem('loggedIn', 'true') // set storage val
